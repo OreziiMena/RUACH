@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import OrderService from "@/services/order.service";
 import { errorHandler } from "@/lib/apiErrorHandler";
 
+export const dynamic = 'force-dynamic';
+
 export const GET = errorHandler(async (request, { params }) => {
   const { id } = await params;
   if (!id) {

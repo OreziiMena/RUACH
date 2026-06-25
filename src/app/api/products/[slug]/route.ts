@@ -2,6 +2,8 @@ import { errorHandler } from '@/lib/apiErrorHandler';
 import ProductService from '@/services/product.service';
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export const GET = errorHandler(async (_, { params }) => {
   const { slug } = await params;
 
