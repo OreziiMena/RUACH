@@ -7,15 +7,16 @@ import styles from "./Gallery.module.css";
 const galleryImages = [
   {
     id: 1,
-    src: "/Assets/photo_2026-01-25_14-06-50.jpg",
+    src: "/Assets/tunde-buremo-mCt8hjAlNck-unsplash.jpg",
     alt: "Fashion Look 5",
     featured: false,
   },
   {
     id: 2,
-    src: "/Assets/tunde-buremo-mCt8hjAlNck-unsplash.jpg",
+    src: "/Assets/photo_2026-06-25_18-58-11.jpg",
     alt: "Fashion Look 5",
     featured: false,
+    
   },
   {
     id: 3,
@@ -42,7 +43,7 @@ const galleryImages = [
     featured: false,
   },{
     id: 7,
-    src: "/Assets/photo_2026-06-25_18-58-11.jpg",
+    src: "/Assets/photo_2026-01-25_14-06-50.jpg",
     alt: "Fashion Look 5",
     featured: false,
   },
