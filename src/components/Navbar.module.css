@@ -253,6 +253,24 @@
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
+.wishlistBadge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background-color: var(--terracotta);
+  color: var(--obsidian);
+  font-family: var(--font-clean);
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
 .mobileMenuBtnContainer {
   display: flex;
   align-items: center;
@@ -403,6 +421,34 @@
   .brandText {
     font-size: 1rem;
     letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 640px) {
+  .brandText {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+  .logoWrapper {
+    width: 2rem;
+    height: 2rem;
+  }
+  .rightSide {
+    gap: 0.75rem;
+  }
+  .wishlistBadge {
+    top: -0.15rem;
+    right: -0.15rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .brandText {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
   }
 }
 

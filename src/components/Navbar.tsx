@@ -131,12 +131,7 @@ export default function Navbar() {
             <Link href="/wishlist" className={styles.iconBtn} style={{ position: "relative", display: "inline-flex" }}>
               <Heart strokeWidth={1.5} className={styles.iconSize} />
               {wishlistCount > 0 && (
-                <span style={{
-                  position: "absolute", top: "-4px", right: "-4px", backgroundColor: "var(--terracotta)", 
-                  color: "var(--obsidian)", fontSize: "0.65rem", fontWeight: "bold", borderRadius: "50%",
-                  minWidth: "16px", height: "16px", display: "flex", justifyContent: "center",
-                  alignItems: "center", padding: "0 4px", boxShadow: "0 0 8px rgba(212, 175, 55, 0.4)"
-                }}>
+                <span className={styles.wishlistBadge}>
                   {wishlistCount}
                 </span>
               )}
