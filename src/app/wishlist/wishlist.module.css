@@ -1,0 +1,259 @@
+.pageWrapper {
+  color: var(--ivory, #FDFBF7);
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(rgba(20, 20, 20, 0.85), rgba(20, 20, 20, 0.85)), url('/Assets/brand-image-9.jpeg');
+}
+
+.container {
+  width: 100%;
+  padding: 1.5rem;
+  padding-top: 5rem; 
+  margin-top: 2rem;
+}
+
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(253, 251, 247, 0.1);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  gap: 1rem;
+}
+
+
+.title {
+  font-family: var(--font-editorial, serif);
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-family: var(--font-clean, sans-serif);
+  font-size: 0.85rem;
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* --- EMPTY STATE --- */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem;
+  background-color: rgba(253, 251, 247, 0.02);
+  border: 1px dashed #27272a;
+  border-radius: 4px;
+}
+
+.emptyIcon {
+  color: #52525b;
+  margin-bottom: 1.5rem;
+}
+
+.emptyState h2 {
+  font-family: var(--font-editorial, serif);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.emptyState p {
+  color: #a1a1aa;
+  margin-bottom: 2.5rem;
+  max-width: 360px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.continueBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  font-size: 0.85rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: var(--ivory);
+  color: var(--obsidian);
+  border: none; 
+  border-radius: 10px; 
+  transition: opacity 0.2s ease;
+}
+
+.continueBtn:hover {
+  opacity: 0.9;
+}
+
+/* --- RESPONSIVE GRID LAYOUT --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile devices */
+  gap: 1.5rem 1rem;
+}
+
+/* --- PRODUCT CARD --- */
+.productCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background-color: #1c1c1c;
+  margin-bottom: 1rem;
+}
+
+.image {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.productCard:hover .image {
+  transform: scale(1.04);
+}
+
+.removeBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: rgba(18, 18, 18, 0.75);
+  color: #FDFBF7;
+  border: 1px solid rgba(253, 251, 247, 0.15);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.removeBtn:hover {
+  background-color: #e11d48;
+  border-color: #e11d48;
+  transform: scale(1.05);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.productName {
+  font-family: var(--font-editorial, serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.viewBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem;
+  background-color: transparent;
+  border: 1px solid #52525b;
+  color: #FDFBF7;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  margin-top: auto; /* Pushes button cleanly to bottom edge */
+}
+
+.viewBtn:hover {
+  border-color: #FDFBF7;
+  background-color: rgba(253, 251, 247, 0.05);
+}
+
+/* --- LOADING SKELETONS --- */
+.skeletonCard {
+  aspect-ratio: 3/4;
+  background: linear-gradient(90deg, #1c1c1c 25%, #27272a 50%, #1c1c1c 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 2px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ==========================================================================
+   BREAKPOINTS (TABLETS & DESKTOPS)
+   ========================================================================== */
+
+/* Tablets & Small Monitors */
+@media (min-width: 640px) {
+  .container {
+    padding: 3rem;
+    margin-top: 3%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2.5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2.75rem;
+  }
+}
+
+/* Desktop Interfaces */
+@media (min-width: 1024px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem 2rem;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .productName {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,222 @@
+.pageWrapper {
+  background-color: var(--obsidian, #141414);
+  color: var(--ivory, #FDFBF7);
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(rgba(20, 20, 20, 0.85), rgba(20, 20, 20, 0.85)), url('/Assets/brand-image-9.jpeg');
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; /* Added to perfectly center the container on large screens */
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Split screen layout */
+  gap: 6rem;
+  align-items: start;
+  padding: 6rem 1.5rem 4rem 1.5rem; /* Increased top padding to clear the fixed navbar */
+}
+
+/* --- LEFT COLUMN: BRAND & TEXT --- */
+.leftColumn {
+  position: sticky;
+  top: 8rem;
+  margin-left: 1rem;
+}
+
+.brandHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+}
+
+.stickyImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 60vh; 
+  overflow: hidden;
+  margin-top: 1.9rem;
+  margin-bottom: 2rem; 
+  margin-left: 0; 
+  margin-right: 0;
+  padding: 0;
+}
+
+.title {
+  font-family: var(--font-editorial, serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ivory, #FDFBF7);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  font-family: var(--font-clean, sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--ivory, #FDFBF7);
+  opacity: 0.8;
+}
+
+.chatLink {
+  color: var(--burnt-umber, #8B3A2B); 
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.chatLink:hover {
+  opacity: 0.7;
+}
+
+/* --- RIGHT COLUMN: FAQS --- */
+.rightColumn {
+  width: 100%;
+  margin-top: 2rem; /* Adjusted so it aligns better with the left column text */
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(253, 251, 247, 0.1); /* Changed to ivory with low opacity for dark mode visibility */
+}
+
+.accordionItem:first-child {
+  border-top: 1px solid rgba(253, 251, 247, 0.1); 
+}
+
+.questionBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: var(--ivory, #FDFBF7); 
+  padding: 2rem 0;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.3s ease;
+  gap: 2rem;
+}
+
+.questionBtn:hover {
+  opacity: 0.8;
+}
+
+.questionText {
+  font-family: var(--font-editorial, serif); 
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.toggleIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--antique-gold, #C5A059); 
+  color: var(--ivory, #FDFBF7); 
+  width: 42px;
+  height: 42px;
+  border-radius: 8px; 
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.answerWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.answerWrapper.open {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, padding 0.4s ease;
+}
+
+.answerWrapper.open .answerInner {
+  opacity: 1;
+  padding-bottom: 2rem; 
+}
+
+.answerText {
+  font-family: var(--font-clean, sans-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ivory, #FDFBF7);
+  opacity: 0.7;
+  max-width: 90%; 
+}
+
+/* --- TABLET (Below 1024px) --- */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr; /* Stacks the layout */
+    gap: 2rem;
+    padding-top: 5rem;
+  }
+
+  .leftColumn {
+    position: relative;
+    top: 0;
+    margin-left: 0;
+  }
+  
+  .brandHeader {
+    margin-bottom: 1.5rem;
+  }
+
+  .rightColumn {
+    margin-top: -2.5rem;
+  }
+
+  .stickyImageWrapper {
+    height: 47vh; 
+  }
+}
+
+/* --- MOBILE (Below 768px) --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 5rem 1rem 3rem 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .questionText {
+    font-size: 1.15rem;
+  }
+
+  .questionBtn {
+    padding: 1.5rem 0;
+    gap: 1rem;
+  }
+  
+  .toggleIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+  }
+  
+  .answerText {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+}

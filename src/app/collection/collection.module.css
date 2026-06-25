@@ -1,0 +1,644 @@
+.pageWrapper {
+  color: var(--ivory, #FDFBF7);
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(rgba(10, 11, 12, 0.85), rgba(10, 11, 12, 0.85)), url('/Assets/brand-image-9.jpeg');
+}
+
+.container {
+  width: 100%;
+  padding: 8rem 2rem 4rem 2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-editorial);
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: var(--font-clean);
+  font-size: 0.85rem;
+  color: rgba(253, 251, 247, 0.6);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Filters Row */
+.filtersContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(253, 251, 247, 0.4);
+}
+
+.searchInput {
+  width: 100%;
+  background-color: rgba(10, 11, 12, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--ivory, #FDFBF7);
+  padding: 0.85rem 1rem 0.85rem 3rem;
+  font-family: var(--font-clean);
+  font-size: 0.85rem;
+  border-radius: 0px;
+  outline: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.searchInput:focus {
+  border-color: var(--terracotta);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+/* Layout for the dropdowns row */
+.dropdownsWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Custom Dropdown Styling */
+.filterWrapper {
+  position: relative;
+  width: 200px; 
+}
+
+.customSelectTrigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 11, 12, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: rgba(253, 251, 247, 0.8);
+  padding: 0.85rem 1.25rem;
+  border-radius: 0px; 
+  font-family: var(--font-clean);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.customSelectTrigger:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+.selectIcon {
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.customSelectMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: #121213; 
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 0px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  z-index: 50;
+  animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.customSelectOption {
+  padding: 0.75rem 1.25rem;
+  color: rgba(253, 251, 247, 0.8);
+  font-family: var(--font-clean);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.customSelectOption:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--terracotta);
+  padding-left: 1.5rem;
+}
+
+.optionActive {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Product Grid */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.productCard {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  background-color: #121213;
+  border: 1px solid rgba(253, 251, 247, 0.04);
+  border-radius: 0px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.25);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #0c0d0e;
+}
+
+.productImage {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.04);
+}
+
+/* Card Details Section */
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.productName {
+  font-family: var(--font-editorial);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.inStockBadge {
+  color: var(--terracotta);
+  background-color: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-family: var(--font-clean);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.outOfStockBadge {
+  color: rgba(253, 251, 247, 0.4);
+  background-color: rgba(253, 251, 247, 0.02);
+  border: 1px solid rgba(253, 251, 247, 0.1);
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-family: var(--font-clean);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.productPrice {
+  font-family: var(--font-clean);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem 0;
+  color: rgba(253, 251, 247, 0.9);
+}
+
+/* The visual "Button" */
+.gridCartBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem;
+  font-family: var(--font-clean);
+  font-size: 0.75rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--terracotta);
+  color: var(--obsidian);
+  border: 1px solid var(--terracotta); 
+  border-radius: 0px; 
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.productCard:hover .gridCartBtn {
+  background-color: transparent;
+  color: var(--terracotta);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 5rem;
+  flex-wrap: wrap;
+}
+
+.paginationNumbers {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paginationButton,
+.paginationButtonActive {
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: 0px; 
+  border: 1px solid rgba(253, 251, 247, 0.15);
+  background: transparent;
+  color: var(--ivory, #FDFBF7);
+  font-family: var(--font-clean, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  transform: translateY(-1px);
+}
+
+.paginationButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.paginationButtonActive {
+  background-color: var(--terracotta);
+  color: var(--obsidian);
+  border-color: var(--terracotta);
+}
+
+.paginationEllipsis {
+  color: rgba(253, 251, 247, 0.4);
+  font-size: 0.85rem;
+  padding: 0 0.25rem;
+}
+
+/* States */
+.loadingState, .emptyState {
+  text-align: center;
+  padding: 6rem 0;
+  font-family: var(--font-clean, sans-serif);
+  color: rgba(253, 251, 247, 0.5);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.clearBtn {
+  margin-top: 1.5rem;
+  background: transparent;
+  border: 1px solid var(--terracotta);
+  color: var(--terracotta);
+  padding: 0.9rem 2rem;
+  font-family: var(--font-clean);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0px;
+}
+
+.clearBtn:hover {
+  background-color: var(--terracotta);
+  color: var(--obsidian);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 6rem 1rem 3rem 1rem;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .filtersContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .searchWrapper {
+    max-width: 100%;
+  }
+
+  .dropdownsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .filterWrapper {
+    width: 100%;
+  }
+  
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .productDetails {
+    padding: 1rem;
+  }
+
+  .productName {
+    font-size: 0.95rem;
+  }
+  
+  .inStockBadge, .outOfStockBadge {
+    padding: 2px 6px;
+    font-size: 0.6rem;
+  }
+  
+  .gridCartBtn {
+    padding: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+    margin-top: 3rem;
+  }
+
+  .paginationButton,
+  .paginationButtonActive {
+    min-width: 2.3rem;
+    height: 2.3rem;
+    padding: 0 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Flash Sale & Discount Feature Styling */
+.discountBanner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(18, 18, 19, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 2px;
+  padding: 1.5rem 2rem;
+  position: relative;
+  margin: 0 auto 3rem auto;
+  max-width: 1200px;
+  gap: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.badge {
+  background-color: var(--terracotta);
+  color: var(--obsidian);
+  font-family: var(--font-clean);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+}
+
+.bannerText {
+  flex: 1;
+  text-align: left;
+}
+
+.bannerText h3 {
+  font-family: var(--font-editorial);
+  font-size: 1.4rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--ivory);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bannerText p {
+  font-family: var(--font-clean);
+  font-size: 0.8rem;
+  margin: 0;
+  color: rgba(253, 251, 247, 0.6);
+  font-weight: 300;
+}
+
+.countdownContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.countdownUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 45px;
+}
+
+.countdownNumber {
+  font-family: var(--font-clean);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ivory);
+  line-height: 1.2;
+}
+
+.countdownLabel {
+  font-family: var(--font-clean);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(253, 251, 247, 0.4);
+  margin-top: 2px;
+}
+
+.countdownDivider {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(212, 175, 55, 0.3);
+  align-self: flex-start;
+  margin-top: -2px;
+}
+
+.expiredLabel {
+  font-family: var(--font-clean);
+  font-size: 0.95rem;
+  color: #ef4444;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.discountedPrice {
+  font-family: var(--font-clean);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--terracotta);
+}
+
+.slashedPrice {
+  font-family: var(--font-clean);
+  font-size: 0.85rem;
+  text-decoration: line-through;
+  color: rgba(253, 251, 247, 0.4);
+}
+
+.gridBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--terracotta);
+  color: var(--obsidian);
+  padding: 0.3rem 0.6rem;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bannerDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bannerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(253, 251, 247, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.bannerDot:hover {
+  background-color: rgba(212, 175, 55, 0.4);
+}
+
+.bannerDotActive {
+  background-color: var(--terracotta);
+  width: 14px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .discountBanner {
+    flex-direction: column;
+    padding: 1.25rem 1.25rem 2rem 1.25rem;
+    gap: 1.25rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .bannerText {
+    text-align: center;
+  }
+  .countdownContainer {
+    justify-content: center;
+  }
+}

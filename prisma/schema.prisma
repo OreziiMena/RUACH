@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum AuthProvider {
+  LOCAL
+  GOOGLE
+}
+
+enum OrderStatus {
+  PENDING // Order has been placed but not yet paid
+  PROCESSING // Payment received, preparing for shipment
+  SHIPPED // Order has been shipped but not yet delivered
+  DELIVERED // Order has been delivered to the customer
+  CANCELLED // Order has been cancelled by the customer (before payment)
+}
+
+enum ShippingMethod {
+  WITHIN_PORT_HARCOURT
+  OUTSIDE_PORT_HARCOURT_DOORS
+  OUTSIDE_PORT_HARCOURT_PICKUP
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  role      Role     @default(USER)
+  address   String?
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authMethods         AuthMethod[]
+  cart                Cart?
+  orders              Order[]
+  passwordResetTokens PasswordResetToken[]
+
+  @@map("users")
+}
+
+model AuthMethod {
+  id           String       @id @default(uuid())
+  userId       String
+  provider     AuthProvider
+  providerId   String? // For third-party providers like GOOGLE
+  passwordHash String? // Only for LOCAL provider
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("auth_methods")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("password_reset_tokens")
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+
+  products  Product[]
+  discounts Discount[]
+
+  @@map("categories")
+}
+
+model Product {
+  id          String @id @default(uuid())
+  name        String
+  slug        String @unique
+  description String
+  categoryId  Int
+  price       Float
+  stock_count Int
+  sales_count Int    @default(0)
+
+  imageKey      String
+  thumbnailKeys String[] @default([])
+
+  sizes String[] @default([])
+
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+
+  category   Category    @relation(fields: [categoryId], references: [id])
+  discount   Discount?
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+
+  @@map("products")
+}
+
+model Discount {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  percentage  Float
+  productId   String?  @unique
+  categoryId  Int?
+  productIds  String[] @default([])
+  imageKey    String?
+  expiresAt   DateTime
+
+  product  Product?  @relation(fields: [productId], references: [id])
+  category Category? @relation(fields: [categoryId], references: [id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("discounts")
+}
+
+model CartItem {
+  id        String @id @default(uuid())
+  cartId    String
+  productId String
+  quantity  Int
+  size      String
+
+  cart    Cart    @relation(fields: [cartId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@unique([cartId, productId, size])
+  @@map("cart_items")
+}
+
+model Cart {
+  id         String     @id @default(uuid())
+  user_id    String     @unique
+  items      CartItem[]
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+
+  user User @relation(fields: [user_id], references: [id])
+
+  @@map("carts")
+}
+
+model OrderItem {
+  id                String @id @default(uuid())
+  orderId           String
+  productId         String
+  quantity          Int
+  size              String
+  price_at_purchase Float
+
+  order   Order   @relation(fields: [orderId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("order_items")
+}
+
+model Order {
+  id                String      @id @default(uuid())
+  userId            String
+  totalAmount       Float
+  payment_reference String?
+  street_address    String
+  city              String
+  state             String
+  zip_code          String?
+  country           String
+  contact_name      String
+  contact_phone     String
+  contact_email     String
+  note              String?
+  admin_note        String?
+  status            OrderStatus @default(PENDING)
+  shippingMethod    ShippingMethod
+  orderItems        OrderItem[]
+
+  shipped_at   DateTime?
+  delivered_at DateTime?
+  cancelled_at DateTime?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("orders")
+}
+
+model PaystackEvent {
+  event_id    String   @id
+  event_type  String
+  payload     Json
+  received_at DateTime @default(now())
+
+  @@map("paystack_event")
+}

@@ -1,0 +1,562 @@
+.pageWrapper {
+  color: var(--ivory, #FDFBF7);
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(rgba(20, 20, 20, 0.85), rgba(20, 20, 20, 0.85)), url('/Assets/brand-image-9.jpeg');
+}
+
+.container {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 5%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center; 
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #f5f5dc;
+}
+
+.subtitle {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.orderCount {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f5f5dc;
+}
+
+.countText {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: #a0a0a0;
+}
+
+.countNumber {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f5f5dc;
+}
+
+/* Filters Card */
+.filtersCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(245, 245, 220, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0a0a0;
+}
+
+.searchInput {
+  width: 100%;
+  background: rgba(245, 245, 220, 0.05);
+  border: 1px solid rgba(245, 245, 220, 0.1);
+  color: #f5f5dc;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.nativeSelect {
+  background: rgba(245, 245, 220, 0.05);
+  border: 1px solid rgba(245, 245, 220, 0.1);
+  color: #f5f5dc;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.nativeSelect option {
+  background: #1a1a1a;
+  color: #f5f5dc;
+}
+
+/* Order Cards */
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.orderCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(245, 245, 220, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.orderId {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #f5f5dc;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.processing {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.pending {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.completed {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.cancelled {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.failed {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.shipped {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.cardMeta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+.metaPrice {
+  font-weight: 700;
+  color: #f5f5dc;
+}
+
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+.customerName {
+  font-weight: 600;
+  color: #f5f5dc;
+}
+
+/* Items Preview */
+.itemsListPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.itemPreview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(245, 245, 220, 0.03);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.itemImageWrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.itemImage {
+  object-fit: cover;
+}
+
+.itemDetails h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+  color: #f5f5dc;
+}
+
+.itemQty {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+}
+
+/* Actions */
+.cardActions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.viewDetailsBtn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(245, 245, 220, 0.2);
+  color: #f5f5dc;
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.viewDetailsBtn:hover {
+  background: rgba(245, 245, 220, 0.05);
+}
+
+.shippingPreview {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(245, 245, 220, 0.05);
+}
+
+/* --- ADMIN EDIT SECTION --- */
+
+.startEditBtn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(245, 245, 220, 0.1);
+  border: 1px solid transparent;
+  color: #f5f5dc;
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.startEditBtn:hover {
+  background: rgba(245, 245, 220, 0.15);
+}
+
+.editSection {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  border: 1px dashed rgba(245, 245, 220, 0.2);
+}
+
+.statusEditSelect {
+  background: #1a1a1a;
+  border: 1px solid rgba(245, 245, 220, 0.3);
+  color: #f5f5dc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.editLabel {
+  display: block;
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  margin-bottom: 0.5rem;
+}
+
+.noteInput {
+  width: 100%;
+  background: rgba(245, 245, 220, 0.05);
+  border: 1px solid rgba(245, 245, 220, 0.2);
+  color: #f5f5dc;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.editActionButtons {
+  flex: 1;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.saveBtn {
+  flex: 1;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+}
+
+.cancelEditBtn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid rgba(245, 245, 220, 0.2);
+  color: #a0a0a0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.existingNote {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(245, 245, 220, 0.05);
+  border-left: 3px solid rgba(245, 245, 220, 0.3);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.85rem;
+  color: #e0e0e0;
+}
+/* Custom Dropdown Styling */
+.filterWrapper {
+  position: relative;
+  width: 180px; 
+}
+
+.editStatusWrapper {
+  position: relative;
+}
+
+.customSelectTrigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(245, 245, 220, 0.2);
+  color: #f5f5dc;
+  padding: 0.875rem 1rem;
+  border-radius: 8px; 
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.customSelectTrigger:hover {
+  border-color: rgba(245, 245, 220, 0.4);
+}
+
+.selectIcon {
+  color: #f5f5dc;
+  transition: transform 0.2s ease;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.customSelectMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: #222222; 
+  border: 1px solid rgba(245, 245, 220, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 50;
+  animation: slideDown 0.2s ease forwards;
+}
+
+.customSelectHeader {
+  padding: 0.875rem 1rem;
+  color: #f5f5dc;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(245, 245, 220, 0.1);
+  background: #2a2a2a;
+}
+
+.customSelectOption {
+  padding: 0.875rem 1rem;
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.customSelectOption:hover {
+  background: rgba(245, 245, 220, 0.05);
+  color: #f5f5dc;
+}
+
+.optionActive {
+  background: rgba(245, 245, 220, 0.05);
+  color: #f5f5dc;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Pagination Number Styles --- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.paginationNumbers {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paginationButton,
+.paginationButtonActive {
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid #4a4a4d;
+  background: transparent;
+  color: var(--ivory, #FDFBF7);
+  font-family: var(--font-clean, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--ivory, #FDFBF7);
+}
+
+.paginationButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.paginationButtonActive {
+  background-color: var(--ivory, #FDFBF7);
+  color: var(--obsidian, #141414);
+  border-color: var(--ivory, #FDFBF7);
+}
+
+.paginationEllipsis {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  padding: 0 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .paginationButton,
+  .paginationButtonActive {
+    min-width: 2.4rem;
+    height: 2.4rem;
+    padding: 0 0.75rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .filterWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .filtersCard {
+    flex-direction: column;
+  }
+  .cardActions, .editActionButtons {
+    flex-direction: column;
+  }
+  .header {
+    margin-top: 3rem;
+  }
+}
