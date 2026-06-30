@@ -54,7 +54,7 @@ export default function Footer() {
             <Link href="/" className={styles.logoLink}>
             <div className={styles.logoWrapper}>
                 <Image
-                  src="/Assets/brandd-logo.png"
+                  src="/Assets/RUACH logo.png"
                   alt="RUACH H. FASHION Logo"
                   fill
                   className={styles.logoImage}

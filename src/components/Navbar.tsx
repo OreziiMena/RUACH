@@ -45,7 +45,7 @@ export default function Navbar() {
             <Link href="/" className={styles.logoLink}>
               <div className={styles.logoWrapper}>
                 <Image
-                  src="/Assets/brandd-logo-white.png"
+                  src="/Assets/RUACH logo.png"
                   alt="RUACH H. FASHION Logo"
                   fill
                   unoptimized

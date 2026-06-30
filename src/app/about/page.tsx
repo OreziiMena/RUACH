@@ -11,7 +11,7 @@ export default function AboutPage() {
         <div className={styles.imageColumn}>
           <div className={styles.stickyImageWrapper}>
             <Image
-              src="/Assets/brandd-logo-white.png" 
+              src="/Assets/RUACH logo.png" 
               alt="RUACH H. FASHION Heritage"
               fill
               priority

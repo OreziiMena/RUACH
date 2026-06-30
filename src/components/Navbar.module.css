@@ -53,6 +53,8 @@
 
 .logoImage {
   object-fit: contain;
+  width: 50%;
+  height: 50%;
 }
 
 .brandText {

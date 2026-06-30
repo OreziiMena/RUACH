@@ -44,7 +44,7 @@ export default function NewsletterPage() {
       {/* Left Column: Premium Fashion Image (Desktop only) */}
       <div className={styles.imageColumn}>
         <Image
-          src="/Assets/IMG_0993.JPG"
+          src="/Assets/RUACH logo.png"
           alt="Moorafrika Brand Editorial Look"
           fill
           sizes="50vw"
